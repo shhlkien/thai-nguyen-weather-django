@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Thai Nguyen Weather</title>
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" crossorigin>
+</head>
+<body class="is-preload">
+    <div id="wrapper">
+        <section id="main">
+            <header>
+                <span class="avatar"><img src="{{ data.weather.icon }}" alt="" /></span>
+                <h1 class="text-bold" style="text-align:center">{{ data.weather.description }}</h1>
+                <p>
+                    <span>Location: </span>
+                    <span class="text-bold">{{ data.location }}</span>
+                </p>
+                <p>
+                    <span>temperature: </span>
+                    <span class="text-bold">{{ data.weather.temp }}</span>
+                </p>
+                <p>
+                    <span>humidity: </span>
+                    <span class="text-bold">{{ data.weather.humidity }}</span>
+                </p>
+                <p>
+                    <span>wind: </span>
+                    <span class="text-bold">{{ data.weather.wind_speed }}</span>
+                </p>
+                <p>
+                    <span>pressure: </span>
+                    <span class="text-bold">{{ data.weather.pressure }}</span>
+                </p>
+                <p>
+                    <span>sunrise: </span>
+                    <span class="text-bold">{{ data.weather.sunrise }}</span>
+                </p>
+                <p>
+                    <span>sunset: </span>
+                    <span class="text-bold">{{ data.weather.sunset }}</span>
+                </p>
+                <p>
+                    <span>Last update: </span>
+                    <span class="text-bold">{{ data.get_time }}</span>
+                </p>
+            </header>
+        </section>
+        <footer id="footer">
+            <ul class="copyright">
+                <li><a href="http://html5up.net">&copy; HTML5 UP</a></li>
+            </ul>
+        </footer>
+    </div>
+    <script>
+        if ('addEventListener' in window) { window.addEventListener('load', () => { document.body.className = document.body.className.replace(/\bis-preload\b/, ''); }); document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : ''); }
+    </script>
+</body>
+</html>
